@@ -17,4 +17,4 @@ AI-powered test automation blueprint — foundation setup for building, testing,
 | Chapter | Description |
 |---------|-------------|
 | Chapter_01_Foundation | Installation and core setup (Node.js + n8n) |
-| Chapter_02_LLM | Local LLM setup (Ollama, LM Studio) and AI tools comparison |
+| Chapter_02_LLM | Local LLM setup (Ollama, LM Studio), AI tools comparison, open vs closed source models |
