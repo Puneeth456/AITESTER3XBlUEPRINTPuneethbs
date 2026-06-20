@@ -1,0 +1,1 @@
+Build a production-ready Python REST API testing framework from scratch using Playwright's APIRequestContext and pytest. The framework must cover: layered API client architecture, Pydantic v2 schema validation, pytest fixture-driven setup, and full CRUD test coverage against the JSONPlaceholder public API.

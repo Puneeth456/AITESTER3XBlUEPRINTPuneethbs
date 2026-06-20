@@ -1,0 +1,4 @@
+playwright==1.*
+pytest==8.*
+pydantic==2.*
+pytest-html==4.*
