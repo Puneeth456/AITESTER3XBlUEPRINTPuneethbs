@@ -101,7 +101,7 @@ See [`Chapter_03_Prompt/Project_03_API_Rest_Framework/RICE_POT.md`](Chapter_03_P
 
 A full-stack AI application built using the **BLAST Framework** (Blueprint → Link → Architect → Stylize → Trigger).
 
-**Live App:** https://rice-pot-test-strategy.vercel.app
+**Live App:** https://test-strategy-puneeth-bs-projects4.vercel.app
 
 ### Stack
 | Layer | Technology |

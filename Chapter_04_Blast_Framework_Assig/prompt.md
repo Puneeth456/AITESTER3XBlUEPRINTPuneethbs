@@ -161,5 +161,5 @@ Built complete Vite + React app following BLAST framework (5 phases).
 Removed RICE-POT and BLAST Framework branding from UI. Rebranded as "Test Strategy & Test Case Generator".
 
 ### Session 3 — Deployment
-Deployed to Vercel: https://rice-pot-test-strategy.vercel.app
+Deployed to Vercel: https://test-strategy-puneeth-bs-projects4.vercel.app
 Project name on Vercel: `test-strategy`
