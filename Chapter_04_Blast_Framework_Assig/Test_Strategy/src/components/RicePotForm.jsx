@@ -3,7 +3,7 @@ import { useState } from 'react'
 const FIELDS = [
   {
     key: 'role',
-    label: 'R — Role',
+    label: 'Role',
     color: '#ff6b6b',
     placeholder: 'Expert QA Automation Engineer with 10 years of enterprise testing experience',
     hint: 'AI persona to adopt',
@@ -11,7 +11,7 @@ const FIELDS = [
   },
   {
     key: 'instructions',
-    label: 'I — Instructions',
+    label: 'Instructions',
     color: '#ffd93d',
     placeholder: '1. Generate test cases for the login flow\n2. Cover happy path, negative, and edge cases\n3. Include API-level and UI-level tests\n4. Mark each test with priority and type',
     hint: 'Step-by-step commands and constraints',
@@ -19,7 +19,7 @@ const FIELDS = [
   },
   {
     key: 'context',
-    label: 'C — Context',
+    label: 'Context',
     color: '#6bcb77',
     placeholder: 'Salesforce CRM Login Page. Users authenticate via email/password or SSO. The page has rate limiting (5 failed attempts → 15-min lockout). Backend: Node.js + JWT. DB: PostgreSQL.',
     hint: 'Background info — the why and where',
@@ -27,7 +27,7 @@ const FIELDS = [
   },
   {
     key: 'example',
-    label: 'E — Example',
+    label: 'Example',
     color: '#4d96ff',
     placeholder: 'TC-001: Valid Login\nPreconditions: User exists in DB\nSteps: 1. Navigate to /login 2. Enter valid credentials 3. Click Submit\nExpected: Redirect to /dashboard with JWT cookie set',
     hint: 'Sample format to guide output style',
@@ -35,7 +35,7 @@ const FIELDS = [
   },
   {
     key: 'parameters',
-    label: 'P — Parameters',
+    label: 'Parameters',
     color: '#c77dff',
     placeholder: 'Production-level quality. Zero bad practices. Follow ISTQB standards. All test cases must be atomic and independent. No duplicate coverage.',
     hint: 'Quality, accuracy, and style constraints',
@@ -43,7 +43,7 @@ const FIELDS = [
   },
   {
     key: 'output',
-    label: 'O — Output',
+    label: 'Output',
     color: '#ff9f1c',
     placeholder: 'A full Test Strategy document + minimum 5 test cases covering: 2 Functional, 1 Negative, 1 Security, 1 Regression. Include test case ID, title, steps, expected result, priority.',
     hint: 'Exact artifacts to produce',
@@ -51,7 +51,7 @@ const FIELDS = [
   },
   {
     key: 'tone',
-    label: 'T — Tone',
+    label: 'Tone',
     color: '#00b4d8',
     placeholder: 'Technical, precise, enterprise-grade. Use formal QA terminology.',
     hint: 'Communication style',
@@ -100,8 +100,8 @@ export default function RicePotForm({ onGenerate, isLoading }) {
   return (
     <form className="rice-pot-form" onSubmit={handleSubmit}>
       <div className="form-header">
-        <h2 className="form-title">Configure Your Prompt</h2>
-        <p className="form-desc">Fill in all 7 RICE-POT components to generate a tailored test strategy</p>
+        <h2 className="form-title">Configure Your Test Generator</h2>
+        <p className="form-desc">Fill in all 7 fields to generate a tailored test strategy and test cases</p>
       </div>
 
       <div className="fields-grid">

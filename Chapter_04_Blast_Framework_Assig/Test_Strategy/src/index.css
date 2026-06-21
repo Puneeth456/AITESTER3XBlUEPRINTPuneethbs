@@ -141,9 +141,9 @@ body::before {
 }
 
 .blast-tag {
-  background: rgba(107, 203, 119, 0.1);
-  border-color: rgba(107, 203, 119, 0.25);
-  color: var(--accent-green);
+  background: rgba(77, 150, 255, 0.1);
+  border-color: rgba(77, 150, 255, 0.25);
+  color: var(--accent-blue);
 }
 
 /* ─── Main Layout ───────────────────────────────────────────────── */

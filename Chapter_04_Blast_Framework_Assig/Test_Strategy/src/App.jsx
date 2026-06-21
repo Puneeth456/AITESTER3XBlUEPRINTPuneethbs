@@ -66,7 +66,7 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <p>RICE-POT Test Strategy Generator · Built with BLAST Framework · Powered by Groq AI</p>
+        <p>AI Test Generator · Powered by Groq AI · llama-3.3-70b-versatile</p>
       </footer>
 
       {showJira && result?.testCases?.length > 0 && (
