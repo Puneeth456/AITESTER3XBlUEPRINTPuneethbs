@@ -1,0 +1,167 @@
+{
+  "name": "AI_3X_02_JIRA_Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "ad184051-db4f-44fa-9196-19203523d96a",
+      "name": "When chat message received",
+      "webhookId": "d5089d08-3ece-4ebf-b7ff-c596abd65c3c"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are QA automation engineer with 18 years of experience you will get the details of jira  ticket through chat create the jira ticket with the proper steps to reproduce and proper instructions like jira use the jira tool attached"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        48,
+        -32
+      ],
+      "id": "ed86aff2-a601-4a88-97c5-591de9bbaa65",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        176
+      ],
+      "id": "27d3faca-3069-4118-abfd-c2e027040298",
+      "name": "Qwen",
+      "credentials": {
+        "groqApi": {
+          "id": "PxFHD0igf5vvGDHC",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "project": {
+          "__rl": true,
+          "value": "10000",
+          "mode": "list",
+          "cachedResultName": "Jaanu"
+        },
+        "issueType": {
+          "__rl": true,
+          "value": "10003",
+          "mode": "list",
+          "cachedResultName": "Task"
+        },
+        "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', ``, 'string') }}",
+        "additionalFields": {
+          "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.jiraTool",
+      "typeVersion": 1,
+      "position": [
+        208,
+        176
+      ],
+      "id": "67f932ca-0b9d-49bc-9ff2-632d41363bc7",
+      "name": "Create Ticket in Jaanu Project",
+      "credentials": {
+        "jiraSoftwareCloudApi": {
+          "id": "t4tKtSGa4xfT1zgf",
+          "name": "Jira SW Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        64,
+        176
+      ],
+      "id": "f29c5224-208a-4eb3-897a-eb0b5b4c57e4",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qwen": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Ticket in Jaanu Project": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f4ac105d-f0df-4f4c-8894-1377beeac083",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a39f951cb239e7631b9188b1d1b82eb783878587e5d8694e16be0ea55dcaea4"
+  },
+  "nodeGroups": [],
+  "id": "EuFbFk3HgXEGtX6u",
+  "tags": [
+    {
+      "updatedAt": "2026-06-21T15:21:55.636Z",
+      "createdAt": "2026-06-21T15:21:55.636Z",
+      "id": "fhrL88onaJ7UN9z0",
+      "name": "AI3X"
+    }
+  ]
+}

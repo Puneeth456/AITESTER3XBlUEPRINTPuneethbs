@@ -1,0 +1,311 @@
+{
+  "name": "AI_3X_03_Read_PRD_Test_Cases",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "06da2de5-9e4f-4eb1-ae98-9f79f0912d79",
+      "name": "When chat message received",
+      "webhookId": "819557a5-9984-4d58-b686-834a9f26f6b4"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a QA Test Case Generator Agent. Your job is to help create structured test cases based on PRD documents stored in Jira.\n\n## Your Workflow:\nWhen the user asks you to create test cases, follow these steps AUTOMATICALLY:\n\n1. **Read from Jira**: Use the Jira tool to fetch the ticket/issue details using the provided Jira key (e.g., PROJ-123). Extract the PRD content, requirements, and acceptance criteria from the ticket description.\n\n2. **Generate Test Cases**: Based on the PRD content, create comprehensive test cases in this format:\n   - Test Case ID\n   - Test Case Title\n   - Module/Feature\n   - Pre-conditions\n   - Test Steps (numbered)\n   - Expected Result\n   - Priority (High/Medium/Low)\n   - Test Type (Functional/UI/Integration/Negative)\n\n3. **Save to Google Sheet**: Use the Google Sheets tool to append each test case as a new row in the sheet.\n\n## Rules:\n- Always extract ALL requirements from the Jira ticket before generating test cases\n- Cover positive, negative, and edge case scenarios\n- Generate at least 5-10 test cases per feature/module\n- Confirm to the user once test cases are saved to the sheet\n\n## Output Format to user:\nAfter saving, summarize:\n- Total test cases created\n- Jira key used\n- Confirmation that sheet was updated"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        48,
+        -32
+      ],
+      "id": "5284558f-7182-49f9-b1e3-6d93c45ea253",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3.6-27b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        176
+      ],
+      "id": "1aa02469-a51b-4aa4-a1b5-2e39fc2c50a7",
+      "name": "Qwen",
+      "credentials": {
+        "groqApi": {
+          "id": "PxFHD0igf5vvGDHC",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "issueKey": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Issue_Key', ``, 'string') }}",
+        "additionalFields": {
+          "expand": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Expand', ``, 'string') }}",
+          "fields": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fields', ``, 'string') }}",
+          "fieldsByKey": false,
+          "properties": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Properties', ``, 'string') }}",
+          "updateHistory": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Update_History', ``, 'boolean') }}"
+        }
+      },
+      "type": "n8n-nodes-base.jiraTool",
+      "typeVersion": 1,
+      "position": [
+        64,
+        192
+      ],
+      "id": "c4c01b21-3f84-47de-a462-f9fb2b6f9b8f",
+      "name": "Create Ticket in Jaanu Project",
+      "credentials": {
+        "jiraSoftwareCloudApi": {
+          "id": "t4tKtSGa4xfT1zgf",
+          "name": "Jira SW Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -64,
+        176
+      ],
+      "id": "ca3b1ee6-2467-4129-a805-fe613df491bb",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "content": "We want to create the test cases based on the PRD Document\n"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -464,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "972e5993-582d-411d-a6cf-16b7f8fcae03",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1w7JiRNiGqfLvQJmiavCDSTGmeHdL4ZsPYb5tamQzEJ8",
+          "mode": "list",
+          "cachedResultName": "Test Case Sheet - Scrum -5",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1w7JiRNiGqfLvQJmiavCDSTGmeHdL4ZsPYb5tamQzEJ8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1w7JiRNiGqfLvQJmiavCDSTGmeHdL4ZsPYb5tamQzEJ8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "Test case Id"
+          ],
+          "schema": [
+            {
+              "id": "Test case Id",
+              "displayName": "Test case Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Steps",
+              "displayName": "Steps",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Abstract ",
+              "displayName": "Abstract ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Test Procuedure ",
+              "displayName": "Test Procuedure ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Expected Result",
+              "displayName": "Expected Result",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Actual Result",
+              "displayName": "Actual Result",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Asignee",
+              "displayName": "Asignee",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        256,
+        272
+      ],
+      "id": "82e9fd98-c0b6-4100-a862-af715f174be8",
+      "name": "Append or update row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hILuESy5m7ZgBw2o",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qwen": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Ticket in Jaanu Project": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "db9af618-93fc-4c79-9017-00e4e937667a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a39f951cb239e7631b9188b1d1b82eb783878587e5d8694e16be0ea55dcaea4"
+  },
+  "nodeGroups": [],
+  "id": "DLlxSILVzb5zJKuY",
+  "tags": [
+    {
+      "updatedAt": "2026-06-21T15:21:55.636Z",
+      "createdAt": "2026-06-21T15:21:55.636Z",
+      "id": "fhrL88onaJ7UN9z0",
+      "name": "AI3X"
+    }
+  ]
+}

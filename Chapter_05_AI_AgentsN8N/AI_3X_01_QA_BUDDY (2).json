@@ -1,0 +1,100 @@
+{
+  "name": "AI_3X_01_QA_BUDDY",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "bf7e53c5-14f4-43f6-be1d-d2e7e6be58f0",
+      "name": "When chat message received",
+      "webhookId": "72de2b68-f937-4e34-9bae-ace6d1bcf531"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are QA Assistant and you will always answer the query regarding the QA Queries. Expected Answer will be the technical answer which is related to QA.\n\nRA"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        48,
+        -32
+      ],
+      "id": "f47726e0-d7bc-426a-921a-65ff15918bd7",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3-32b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        176
+      ],
+      "id": "ceda6b56-92c0-4c74-86ef-99471ab03b51",
+      "name": "Qwen",
+      "credentials": {
+        "groqApi": {
+          "id": "PxFHD0igf5vvGDHC",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qwen": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "821070c9-4ce1-480d-94d2-007a6635de77",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a39f951cb239e7631b9188b1d1b82eb783878587e5d8694e16be0ea55dcaea4"
+  },
+  "nodeGroups": [],
+  "id": "79KpkNey1Tc8jW47",
+  "tags": [
+    {
+      "updatedAt": "2026-06-21T15:21:55.636Z",
+      "createdAt": "2026-06-21T15:21:55.636Z",
+      "id": "fhrL88onaJ7UN9z0",
+      "name": "AI3X"
+    }
+  ]
+}

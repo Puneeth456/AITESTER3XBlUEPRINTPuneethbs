@@ -20,6 +20,7 @@ AI-powered test automation blueprint — foundation setup for building, testing,
 | Chapter_02_LLM | Local LLM setup (Ollama, LM Studio), AI tools comparison, open vs closed source models |
 | Chapter_03_Prompt | Prompt engineering, anti-hallucination rules, test case generator, Selenium framework, prompt templates |
 | Chapter_04_Blast_Framework_Assig | BLAST Framework — AI Test Strategy & Test Case Generator (React + Groq + JIRA) |
+| Chapter_05_AI_AgentsN8N | AI-powered n8n agents — QA Buddy, JIRA Agent, PRD Test Case Generator (Groq + Qwen + JIRA + Google Sheets) |
 
 ## Chapter 03 — Projects
 
@@ -172,6 +173,32 @@ Chapter_04_Blast_Framework_Assig/
 ├── progress.md                      # Session log
 └── prompt.md                        # Groq prompt templates
 ```
+
+---
+
+## Chapter 05 — AI Agents (n8n)
+
+n8n AI agent workflows powered by **Groq (Qwen)** — each agent automates a distinct QA workflow.
+
+| Agent | Nodes | Description |
+|-------|-------|-------------|
+| `AI_3X_01_QA_BUDDY` | Chat Trigger → AI Agent (Qwen) | General QA Q&A assistant — answers any QA query with technical responses |
+| `AI_3X_02_JIRA_Agent` | Chat Trigger → AI Agent → Qwen → JIRA Tool | Creates JIRA tickets from chat — reads project/issue type, generates structured tickets with steps |
+| `AI_3X_03_Read_PRD_Test_Cases` | Chat Trigger → AI Agent → Qwen → JIRA Tool → Google Sheets | Reads PRD from JIRA, auto-generates test cases, appends them to Google Sheets |
+
+### Stack
+| Layer | Technology |
+|-------|-----------|
+| AI Model | Groq — `qwen/qwen3-32b` / `qwen/qwen3.6-27b` |
+| LLM Memory | Buffer Window (Simple Memory) |
+| JIRA | n8n JIRA Tool — REST API v3 |
+| Sheets | Google Sheets OAuth2 API |
+
+### How to Import
+1. Open **n8n** → **Workflows** → **Import from File**
+2. Select any `.json` file from `Chapter_05_AI_AgentsN8N/`
+3. Configure your **Groq API** + **JIRA** + **Google Sheets** credentials
+4. Activate the workflow
 
 ### BLAST Framework Phases
 

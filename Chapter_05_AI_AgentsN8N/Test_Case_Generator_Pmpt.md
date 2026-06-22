@@ -1,0 +1,1 @@
+What should be the test prompt for the AI agent so that whenever I mention the create the test case in the chat view it will read automatically the key from the jira and create the test case and append them to excel file 
