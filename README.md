@@ -1,6 +1,6 @@
-# AITESTER3XBlUEPRINT
+﻿# AITESTER3XBlUEPRINT
 
-AI-powered test automation blueprint — foundation setup for building, testing, and orchestrating workflows with n8n.
+AI-powered test automation blueprint â€” foundation setup for building, testing, and orchestrating workflows with n8n.
 
 ## Getting Started
 
@@ -19,18 +19,20 @@ AI-powered test automation blueprint — foundation setup for building, testing,
 | Chapter_01_Foundation | Installation and core setup (Node.js + n8n) |
 | Chapter_02_LLM | Local LLM setup (Ollama, LM Studio), AI tools comparison, open vs closed source models |
 | Chapter_03_Prompt | Prompt engineering, anti-hallucination rules, test case generator, Selenium framework, prompt templates |
-| Chapter_04_Blast_Framework_Assig | BLAST Framework — AI Test Strategy & Test Case Generator (React + Groq + JIRA) |
-| Chapter_05_AI_AgentsN8N | AI-powered n8n agents — QA Buddy, JIRA Agent, PRD Test Case Generator (Groq + Qwen + JIRA + Google Sheets) |
+| Chapter_04_Blast_Framework_Assig | BLAST Framework â€” AI Test Strategy & Test Case Generator (React + Groq + JIRA) |
+| Chapter_05_AI_AgentsN8N | AI-powered n8n agents â€” QA Buddy, JIRA Agent, PRD Test Case Generator (Groq + Qwen + JIRA + Google Sheets) |
+| Project_Job_Tracker | Job Application Kanban Tracker - React + Vite + IndexedDB drag-and-drop Kanban board |
+| Chapter_06_Branding | LinkedIn branding prompts - headline, summary, experience entries, and backdrop image guide |
 
-## Chapter 03 — Projects
+## Chapter 03 â€” Projects
 
 | Project | Tech Stack | Description |
 |---------|-----------|-------------|
 | Project_01_Test_Case_Generator | RICE-POT prompt | AI-generated test case prompt template |
-| Project_02_Selenium_Framework | Java · Selenium · TestNG · Maven | Page Object Model UI automation framework for Salesforce |
-| Project_03_API_Rest_Framework | Python · Playwright API · pytest · Pydantic | REST API testing framework targeting JSONPlaceholder |
+| Project_02_Selenium_Framework | Java Â· Selenium Â· TestNG Â· Maven | Page Object Model UI automation framework for Salesforce |
+| Project_03_API_Rest_Framework | Python Â· Playwright API Â· pytest Â· Pydantic | REST API testing framework targeting JSONPlaceholder |
 
-## Project 03 — Python API Testing Framework
+## Project 03 â€” Python API Testing Framework
 
 ### Prerequisites
 - Python 3.11+
@@ -44,7 +46,7 @@ cd Chapter_03_Prompt/Project_03_API_Rest_Framework/Output_Framework
 # Install dependencies
 pip install -r requirements.txt
 
-# Install Playwright browsers (API-only, no browser needed — but required for the SDK)
+# Install Playwright browsers (API-only, no browser needed â€” but required for the SDK)
 playwright install
 
 # Run all tests
@@ -64,24 +66,24 @@ pytest --html=report.html --self-contained-html
 
 ```
 Output_Framework/
-├── requirements.txt          # playwright, pytest, pydantic, pytest-html
-├── pytest.ini                # testpaths, markers (smoke / regression)
-├── conftest.py               # session-scoped APIRequestContext fixture
-├── config/
-│   └── settings.py           # BASE_URL + TIMEOUT from env vars
-├── api/
-│   ├── base_client.py        # BaseAPIClient: get/post/put/patch/delete
-│   ├── users_client.py       # /users endpoint methods
-│   └── posts_client.py       # /posts endpoint methods
-├── models/
-│   ├── user.py               # Pydantic User model
-│   └── post.py               # Pydantic Post model
-├── tests/
-│   ├── conftest.py           # client fixtures (users_client, posts_client)
-│   ├── test_users.py         # 5 CRUD tests: GET all, GET one, POST, PUT, DELETE
-│   └── test_posts.py         # 5 CRUD tests: GET all, GET one, POST, PUT, DELETE
-└── utils/
-    └── assertions.py         # assert_status(), assert_schema()
+â”œâ”€â”€ requirements.txt          # playwright, pytest, pydantic, pytest-html
+â”œâ”€â”€ pytest.ini                # testpaths, markers (smoke / regression)
+â”œâ”€â”€ conftest.py               # session-scoped APIRequestContext fixture
+â”œâ”€â”€ config/
+â”‚   â””â”€â”€ settings.py           # BASE_URL + TIMEOUT from env vars
+â”œâ”€â”€ api/
+â”‚   â”œâ”€â”€ base_client.py        # BaseAPIClient: get/post/put/patch/delete
+â”‚   â”œâ”€â”€ users_client.py       # /users endpoint methods
+â”‚   â””â”€â”€ posts_client.py       # /posts endpoint methods
+â”œâ”€â”€ models/
+â”‚   â”œâ”€â”€ user.py               # Pydantic User model
+â”‚   â””â”€â”€ post.py               # Pydantic Post model
+â”œâ”€â”€ tests/
+â”‚   â”œâ”€â”€ conftest.py           # client fixtures (users_client, posts_client)
+â”‚   â”œâ”€â”€ test_users.py         # 5 CRUD tests: GET all, GET one, POST, PUT, DELETE
+â”‚   â””â”€â”€ test_posts.py         # 5 CRUD tests: GET all, GET one, POST, PUT, DELETE
+â””â”€â”€ utils/
+    â””â”€â”€ assertions.py         # assert_status(), assert_schema()
 ```
 
 ### Environment Variables
@@ -98,9 +100,9 @@ See [`Chapter_03_Prompt/Project_03_API_Rest_Framework/RICE_POT.md`](Chapter_03_P
 
 ---
 
-## Chapter 04 — Test Strategy & Test Case Generator
+## Chapter 04 â€” Test Strategy & Test Case Generator
 
-A full-stack AI application built using the **BLAST Framework** (Blueprint → Link → Architect → Stylize → Trigger).
+A full-stack AI application built using the **BLAST Framework** (Blueprint â†’ Link â†’ Architect â†’ Stylize â†’ Trigger).
 
 **Live App:** https://test-strategy-puneeth-bs-projects4.vercel.app
 
@@ -108,15 +110,15 @@ A full-stack AI application built using the **BLAST Framework** (Blueprint → L
 | Layer | Technology |
 |-------|-----------|
 | Frontend | Vite + React 18, plain CSS |
-| AI | Groq API — `llama-3.3-70b-versatile` |
+| AI | Groq API â€” `llama-3.3-70b-versatile` |
 | Issue Tracker | JIRA REST API v3 |
 | Deployment | Vercel |
 
 ### Features
 - 7-field prompt form (Role, Instructions, Context, Example, Parameters, Output, Tone)
 - Groq AI generates a full **Test Strategy document** + structured **Test Cases**
-- Expandable test case cards — color-coded by type (Functional, Security, Performance, etc.)
-- One-click **Push to JIRA** — fetches your live projects, creates tickets
+- Expandable test case cards â€” color-coded by type (Functional, Security, Performance, etc.)
+- One-click **Push to JIRA** â€” fetches your live projects, creates tickets
 - Copy markdown export
 
 ### Setup & Run Locally
@@ -133,7 +135,7 @@ cp .env.example .env
 
 # Start dev server
 npm run dev
-# → http://localhost:3000
+# â†’ http://localhost:3000
 ```
 
 ### Environment Variables
@@ -149,53 +151,53 @@ npm run dev
 
 ```
 Chapter_04_Blast_Framework_Assig/
-├── Test_Strategy/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Header.jsx           # App header
-│   │   │   ├── RicePotForm.jsx      # 7-field prompt form
-│   │   │   ├── TestStrategyOutput.jsx  # Strategy + test case tabs
-│   │   │   └── JiraPanel.jsx        # JIRA push modal
-│   │   ├── tools/
-│   │   │   ├── groqClient.js        # Groq AI integration
-│   │   │   └── jiraClient.js        # JIRA REST API integration
-│   │   ├── App.jsx                  # State orchestrator
-│   │   ├── index.css                # Dark-tech CSS theme
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── vite.config.js
-│   └── vercel.json
-├── architecture/
-│   └── sop.md                       # BLAST Layer 1 — SOP
-├── gemini.md                        # Project Constitution
-├── task_plan.md                     # BLAST phases checklist
-├── findings.md                      # Research & decisions
-├── progress.md                      # Session log
-└── prompt.md                        # Groq prompt templates
+â”œâ”€â”€ Test_Strategy/
+â”‚   â”œâ”€â”€ src/
+â”‚   â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”‚   â”œâ”€â”€ Header.jsx           # App header
+â”‚   â”‚   â”‚   â”œâ”€â”€ RicePotForm.jsx      # 7-field prompt form
+â”‚   â”‚   â”‚   â”œâ”€â”€ TestStrategyOutput.jsx  # Strategy + test case tabs
+â”‚   â”‚   â”‚   â””â”€â”€ JiraPanel.jsx        # JIRA push modal
+â”‚   â”‚   â”œâ”€â”€ tools/
+â”‚   â”‚   â”‚   â”œâ”€â”€ groqClient.js        # Groq AI integration
+â”‚   â”‚   â”‚   â””â”€â”€ jiraClient.js        # JIRA REST API integration
+â”‚   â”‚   â”œâ”€â”€ App.jsx                  # State orchestrator
+â”‚   â”‚   â”œâ”€â”€ index.css                # Dark-tech CSS theme
+â”‚   â”‚   â””â”€â”€ main.jsx
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ vite.config.js
+â”‚   â””â”€â”€ vercel.json
+â”œâ”€â”€ architecture/
+â”‚   â””â”€â”€ sop.md                       # BLAST Layer 1 â€” SOP
+â”œâ”€â”€ gemini.md                        # Project Constitution
+â”œâ”€â”€ task_plan.md                     # BLAST phases checklist
+â”œâ”€â”€ findings.md                      # Research & decisions
+â”œâ”€â”€ progress.md                      # Session log
+â””â”€â”€ prompt.md                        # Groq prompt templates
 ```
 
 ---
 
-## Chapter 05 — AI Agents (n8n)
+## Chapter 05 â€” AI Agents (n8n)
 
-n8n AI agent workflows powered by **Groq (Qwen)** — each agent automates a distinct QA workflow.
+n8n AI agent workflows powered by **Groq (Qwen)** â€” each agent automates a distinct QA workflow.
 
 | Agent | Nodes | Description |
 |-------|-------|-------------|
-| `AI_3X_01_QA_BUDDY` | Chat Trigger → AI Agent (Qwen) | General QA Q&A assistant — answers any QA query with technical responses |
-| `AI_3X_02_JIRA_Agent` | Chat Trigger → AI Agent → Qwen → JIRA Tool | Creates JIRA tickets from chat — reads project/issue type, generates structured tickets with steps |
-| `AI_3X_03_Read_PRD_Test_Cases` | Chat Trigger → AI Agent → Qwen → JIRA Tool → Google Sheets | Reads PRD from JIRA, auto-generates test cases, appends them to Google Sheets |
+| `AI_3X_01_QA_BUDDY` | Chat Trigger â†’ AI Agent (Qwen) | General QA Q&A assistant â€” answers any QA query with technical responses |
+| `AI_3X_02_JIRA_Agent` | Chat Trigger â†’ AI Agent â†’ Qwen â†’ JIRA Tool | Creates JIRA tickets from chat â€” reads project/issue type, generates structured tickets with steps |
+| `AI_3X_03_Read_PRD_Test_Cases` | Chat Trigger â†’ AI Agent â†’ Qwen â†’ JIRA Tool â†’ Google Sheets | Reads PRD from JIRA, auto-generates test cases, appends them to Google Sheets |
 
 ### Stack
 | Layer | Technology |
 |-------|-----------|
-| AI Model | Groq — `qwen/qwen3-32b` / `qwen/qwen3.6-27b` |
+| AI Model | Groq â€” `qwen/qwen3-32b` / `qwen/qwen3.6-27b` |
 | LLM Memory | Buffer Window (Simple Memory) |
-| JIRA | n8n JIRA Tool — REST API v3 |
+| JIRA | n8n JIRA Tool â€” REST API v3 |
 | Sheets | Google Sheets OAuth2 API |
 
 ### How to Import
-1. Open **n8n** → **Workflows** → **Import from File**
+1. Open **n8n** â†’ **Workflows** â†’ **Import from File**
 2. Select any `.json` file from `Chapter_05_AI_AgentsN8N/`
 3. Configure your **Groq API** + **JIRA** + **Google Sheets** credentials
 4. Activate the workflow
@@ -204,12 +206,102 @@ n8n AI agent workflows powered by **Groq (Qwen)** — each agent automates a dis
 
 | Phase | Status | Artifact |
 |-------|--------|----------|
-| B — Blueprint | ✅ | gemini.md, task_plan.md, findings.md |
-| L — Link | ✅ | Groq + JIRA credentials verified |
-| A — Architect | ✅ | 3-layer: SOPs → components → tools |
-| S — Stylize | ✅ | Dark-tech CSS, neon accents, responsive |
-| T — Trigger | ✅ | Vercel production deployment |
+| B â€” Blueprint | âœ… | gemini.md, task_plan.md, findings.md |
+| L â€” Link | âœ… | Groq + JIRA credentials verified |
+| A â€” Architect | âœ… | 3-layer: SOPs â†’ components â†’ tools |
+| S â€” Stylize | âœ… | Dark-tech CSS, neon accents, responsive |
+| T â€” Trigger | âœ… | Vercel production deployment |
 
 ### Prompt Reference
 
 See [`Chapter_04_Blast_Framework_Assig/prompt.md`](Chapter_04_Blast_Framework_Assig/prompt.md) for the full Groq prompt templates, field mapping, and JIRA ticket format.
+
+---
+
+## Project_Job_Tracker â€” Job Application Kanban Board
+
+A drag-and-drop Kanban board for tracking job applications, built with **React + Vite + IndexedDB**.
+
+### Stack
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Vite + React 18, Tailwind CSS |
+| Drag & Drop | @dnd-kit/core + @dnd-kit/sortable |
+| Database | IndexedDB via idb |
+| Linting | oxlint |
+
+### Features
+- **4-column Kanban flow**: Applied -> Interview -> Offer -> Rejected
+- **Drag-and-drop** cards between columns
+- **Add/Edit/Delete** job entries via modal forms
+- **Persistent storage** in IndexedDB (survives page reloads)
+- **Color-coded badges** for job type and status
+
+### Setup & Run Locally
+
+```bash
+cd Project_Job_Tracker/job-tracker
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+# -> http://localhost:5173
+```
+
+### Project Structure
+
+```
+Project_Job_Tracker/job-tracker/
++-- src/
+|   +-- components/
+|   |   +-- Header.jsx             # App header with title
+|   |   +-- KanbanBoard.jsx        # Main Kanban layout with columns
+|   |   +-- Column.jsx             # Draggable column container
+|   |   +-- JobCard.jsx            # Individual job card
+|   |   +-- JobFormModal.jsx       # Add/Edit job modal
+|   |   +-- DeleteConfirmModal.jsx # Delete confirmation dialog
+|   +-- services/
+|   |   +-- db.js                  # IndexedDB operations
+|   |   +-- constants.js           # Column definitions & statuses
+|   +-- App.jsx                    # Root component
+|   +-- main.jsx                   # Entry point
+|   +-- index.css                  # Tailwind CSS styles
++-- index.html
++-- vite.config.js
++-- package.json
++-- README.md
+```
+
+---
+
+## Chapter 06 â€” LinkedIn Branding
+
+AI-assisted branding prompts for crafting an impactful LinkedIn profile -- powered by resume-based content generation.
+
+| Asset | Description |
+|-------|-------------|
+| `Headline.md` | Prompt to generate a keyword-rich, attention-grabbing LinkedIn headline |
+| `Summary.md` | Prompt for a concise 150-word conversational About section |
+| `Experience.md` | Prompt for detailed, achievement-oriented experience entries with quantified impact |
+| `Backdroppicture.md` | AI image generation prompt for a premium 1584x396 banner (dark navy, circuit board accents, tech icons) |
+
+### How to Use
+1. Open any `.md` file in `Chapter_06_Branding/LinkedInBranding/`
+2. Paste the prompt into your preferred AI tool (ChatGPT, Claude, Gemini, etc.)
+3. Attach your updated resume for context
+4. Use the generated content to update your LinkedIn profile
+
+### Directory Structure
+
+```
+Chapter_06_Branding/
++-- AI_Agents/                          # (placeholder for future AI agent workflows)
++-- LinkedInBranding/
+    +-- Headline.md                     # LinkedIn headline prompt
+    +-- Summary.md                      # About section prompt
+    +-- Experience.md                   # Experience entries prompt
+    +-- Backdroppicture.md              # Banner image generation prompt
+```
+
