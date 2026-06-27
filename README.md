@@ -22,7 +22,7 @@ AI-powered test automation blueprint â€” foundation setup for building, tes
 | Chapter_04_Blast_Framework_Assig | BLAST Framework â€” AI Test Strategy & Test Case Generator (React + Groq + JIRA) |
 | Chapter_05_AI_AgentsN8N | AI-powered n8n agents â€” QA Buddy, JIRA Agent, PRD Test Case Generator (Groq + Qwen + JIRA + Google Sheets) |
 | Project_Job_Tracker | Job Application Kanban Tracker - React + Vite + IndexedDB drag-and-drop Kanban board |
-| Chapter_06_Branding | LinkedIn branding prompts - headline, summary, experience entries, and backdrop image guide |
+| Chapter_06_Branding | Content pipeline - n8n AI agents for social scheduling, LinkedIn branding prompts, and Python content dashboard |
 
 ## Chapter 03 â€” Projects
 
@@ -276,32 +276,58 @@ Project_Job_Tracker/job-tracker/
 
 ---
 
-## Chapter 06 â€” LinkedIn Branding
+## Chapter 06 â€” Branding & Content Pipeline
 
-AI-assisted branding prompts for crafting an impactful LinkedIn profile -- powered by resume-based content generation.
+AI-powered content generation pipeline for social media branding â€” from n8n agent workflows to a local Python dashboard.
 
-| Asset | Description |
-|-------|-------------|
-| `Headline.md` | Prompt to generate a keyword-rich, attention-grabbing LinkedIn headline |
-| `Summary.md` | Prompt for a concise 150-word conversational About section |
-| `Experience.md` | Prompt for detailed, achievement-oriented experience entries with quantified impact |
-| `Backdroppicture.md` | AI image generation prompt for a premium 1584x396 banner (dark navy, circuit board accents, tech icons) |
+| Directory | Description |
+|-----------|-------------|
+| `N8N_AI_Agent/` | n8n agent pipeline: 4-chained AI agents (Topic Scheduler -> Content Creator + Image Generator -> Sheets Logger) using Groq + Gemini |
+| `Social_AI_Agents/` | Social content generation specs â€” parallel agents for multi-platform content (LinkedIn, Medium, Instagram, YouTube, Dev.to) |
+| `Social_AI_Agents/UI_Dashboard/` | Local Python dashboard (Flask + Anthropic API) for daily content generation â€” one-click run, Excel log, dark-themed UI |
+| `LinkedInBranding_Prompt/` | Resume-driven branding prompts for LinkedIn headline, summary, experience entries, and backdrop image |
 
 ### How to Use
-1. Open any `.md` file in `Chapter_06_Branding/LinkedInBranding/`
-2. Paste the prompt into your preferred AI tool (ChatGPT, Claude, Gemini, etc.)
-3. Attach your updated resume for context
-4. Use the generated content to update your LinkedIn profile
+
+**n8n AI Agent Pipeline:**
+1. Open `N8N_AI_Agent/Prompt.md` for the full agent workflow spec
+2. Import into n8n with Groq + Google Sheets + Gemini credentials
+
+**Python Dashboard:**
+```bash
+cd Chapter_06_Branding/Social_AI_Agents/UI_Dashboard
+pip install -r requirements.txt
+set ANTHROPIC_API_KEY=sk-ant-...
+python server.py
+# -> http://localhost:8080
+```
+
+**LinkedIn Branding:**
+1. Open any `.md` file in `LinkedInBranding_Prompt/`
+2. Paste the prompt into ChatGPT, Claude, or Gemini
+3. Attach your resume for context
+4. Update your LinkedIn profile with the generated content
 
 ### Directory Structure
 
 ```
 Chapter_06_Branding/
-+-- AI_Agents/                          # (placeholder for future AI agent workflows)
-+-- LinkedInBranding/
-    +-- Headline.md                     # LinkedIn headline prompt
-    +-- Summary.md                      # About section prompt
-    +-- Experience.md                   # Experience entries prompt
-    +-- Backdroppicture.md              # Banner image generation prompt
++-- LinkedInBranding_Prompt/
+|   +-- Headline.md                     # LinkedIn headline prompt
+|   +-- Summary.md                      # About section prompt
+|   +-- Experience.md                   # Experience entries prompt
+|   +-- Backdroppicture.md              # Banner image generation prompt
++-- N8N_AI_Agent/
+|   +-- Prompt.md                       # n8n 4-agent pipeline spec
++-- Social_AI_Agents/
+    +-- Prompt.md                       # Social content agent architecture
+    +-- UI_Dashboard/
+        +-- agent.py                    # Content generation engine
+        +-- server.py                   # Flask web server
+        +-- dashboard.html              # Dark-themed dashboard UI
+        +-- content_log.xlsx            # Auto-created Excel log
+        +-- run_log.json                # JSON cache for dashboard
+        +-- requirements.txt            # Python dependencies
+        +-- README.md                   # Dashboard setup guide
 ```
 
