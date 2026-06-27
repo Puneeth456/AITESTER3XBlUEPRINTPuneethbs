@@ -22,7 +22,7 @@ AI-powered test automation blueprint â€” foundation setup for building, tes
 | Chapter_04_Blast_Framework_Assig | BLAST Framework â€” AI Test Strategy & Test Case Generator (React + Groq + JIRA) |
 | Chapter_05_AI_AgentsN8N | AI-powered n8n agents â€” QA Buddy, JIRA Agent, PRD Test Case Generator (Groq + Qwen + JIRA + Google Sheets) |
 | Project_Job_Tracker | Job Application Kanban Tracker - React + Vite + IndexedDB drag-and-drop Kanban board |
-| Chapter_06_Branding | Content pipeline - n8n AI agents for social scheduling, LinkedIn branding prompts, and Python content dashboard |
+| Chapter_06_Branding | Content pipeline & skill files: n8n AI agents, Python dashboard, LinkedIn branding prompts, Testing Academy content engine, Claude content generation skill |
 
 ## Chapter 03 â€” Projects
 
@@ -286,6 +286,8 @@ AI-powered content generation pipeline for social media branding â€” from n
 | `Social_AI_Agents/` | Social content generation specs â€” parallel agents for multi-platform content (LinkedIn, Medium, Instagram, YouTube, Dev.to) |
 | `Social_AI_Agents/UI_Dashboard/` | Local Python dashboard (Flask + Anthropic API) for daily content generation â€” one-click run, Excel log, dark-themed UI |
 | `LinkedInBranding_Prompt/` | Resume-driven branding prompts for LinkedIn headline, summary, experience entries, and backdrop image |
+| `Skill_Content_Creation/` | Testing Academy content engine - Pramod Dutta brand voice: LinkedIn, Medium, YouTube, Instagram carousel + image prompts |
+| `Claude_Content/` | Tech content generation skill - one-prompt multi-platform publishing (LinkedIn, Medium, Instagram, YouTube, Dev.to) |
 
 ### How to Use
 
@@ -317,6 +319,11 @@ Chapter_06_Branding/
 |   +-- Summary.md                      # About section prompt
 |   +-- Experience.md                   # Experience entries prompt
 |   +-- Backdroppicture.md              # Banner image generation prompt
++-- Skill_Content_Creation/
+|   +-- Skill.md                       # Full content engine for The Testing Academy (Pramod Dutta)
+|   +-- BrandVoice.md                   # Brand voice guide + YouTube video structure
++-- Claude_Content/
+    +-- SKILL.md                       # Tech content generation skill prompt
 +-- N8N_AI_Agent/
 |   +-- Prompt.md                       # n8n 4-agent pipeline spec
 +-- Social_AI_Agents/
